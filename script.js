@@ -1,25 +1,36 @@
-function convertCurrency() {
+async function convertCurrency() {
   const amount = parseFloat(document.getElementById("amount").value);
   const from = document.getElementById("fromCurrency").value;
   const to = document.getElementById("toCurrency").value;
-
-  // REAL CBN RATES TODAY Oct 26, 2026
-  const rates = {
-    USD: 1362.84,
-    EUR: 1525.12,
-    GBP: 1821.46,
-    NGN: 1
-  };
+  const resultEl = document.getElementById("result");
 
   if (isNaN(amount)) {
-    document.getElementById("result").innerText = "Enter a valid number";
+    resultEl.innerText = "Enter a valid number";
     return;
   }
 
-  // Convert to NGN first, then to target
-  const amountInNGN = amount * rates[from];
-  const converted = amountInNGN / rates[to];
+  resultEl.innerText = "Fetching live rate...";
 
-  document.getElementById("result").innerText = 
-    `${amount} ${from} = ${converted.toFixed(2)} ${to} (Rate: Oct 26, 2026)`;
+  try {
+    // Free live API
+    const response = await fetch(`https://open.er-api.com/v6/latest/${from}`);
+    const data = await response.json();
+
+    if (data.result === "success") {
+      const rate = data.rates[to];
+      const converted = amount * rate;
+      
+      resultEl.innerText = 
+        `${amount} ${from} = ${converted.toFixed(2)} ${to}\n(Live rate: 1 ${from} = ${rate.toFixed(2)} ${to})`;
+    } else {
+      resultEl.innerText = "Could not fetch live rate";
+    }
+  } catch (error) {
+    resultEl.innerText = "No internet - using offline rates";
+    // Fallback offline rates (Oct 26, 2026 real)
+    const fallback = { USD: 1362.84, EUR: 1525.12, GBP: 1821.46, NGN: 1 };
+    const amountInNGN = amount * fallback[from];
+    const converted = amountInNGN / fallback[to];
+    resultEl.innerText += `\n${amount} ${from} = ${converted.toFixed(2)} ${to} (offline)`;
+  }
 }
