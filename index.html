@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Currency Converter</title>
+  <title>Currency Converter - Goodluck Gilbert</title>
   <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="container">
     <h1>Currency Converter</h1>
-    <input type="number" id="amount" placeholder="Enter amount" value="100">
+    <input type="number" id="amount" placeholder="Enter amount" value="1">
     
-    <div class="row">
+    <div class="row" style="margin:15px 0;">
       <select id="from">
-        <option value="USD">USD - Dollar</option>
-        <option value="EUR">EUR - Euro</option>
-        <option value="GBP">GBP - Pound</option>
-        <option value="NGN">NGN - Naira</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="NGN">NGN</option>
       </select>
-      <span>to</span>
+      <span> to </span>
       <select id="to">
-        <option value="NGN">NGN - Naira</option>
-        <option value="USD">USD - Dollar</option>
-        <option value="EUR">EUR - Euro</option>
-        <option value="GBP">GBP - Pound</option>
+        <option value="NGN">NGN</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
       </select>
     </div>
 
-    <button onclick="convertCurrency()">Convert</button>
-    <h2 id="result">Result will show here</h2>
-     <p style="margin-top:20px; font-size:12px; color:#888;">
-    © 2026 Goodluck Gilbert. All rights reserved.
-  </p>
+    <button onclick="convert()">Convert</button>
+    <h2 id="result" style="margin-top:20px;">Result will show here</h2>
+    
+    <p style="margin-top:20px; font-size:12px; color:#888;">
+      © 2026 Goodluck Gilbert. All rights reserved.
+    </p>
   </div>
   <script src="script.js"></script>
 </body>
