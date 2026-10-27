@@ -6,7 +6,7 @@ Live currency converter with real-time exchange rates and swap feature.
 ### 🔗 Links
 - **Live Site:** https://goodluckgilbert007-debug.github.io/my-first-js-project/
 - **GitHub Code:** https://github.com/goodluckgilbert007-debug/my-first-js-project
-- **Demo Video:** https://youtu.be/jCXcugiamqY?t=8
+- **Demo Video:** https://youtu.be/jCXcugiamqY
 ### ✨ Features
 - 14 Currencies (USD, NGN, EUR, GBP, CAD, JPY, GHS, ZAR, KES, CNY, INR, AUD, AED, BRL)
 - Swap currencies with one click ⇄
