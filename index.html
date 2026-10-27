@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Currency Converter - Goodluck Gilbert</title>
   <link rel="stylesheet" href="styles.css">
@@ -8,48 +8,61 @@
 <body>
   <div class="container">
     <h1>Currency Converter</h1>
-    <input type="number" id="amount" placeholder="Enter amount" value="1">
-    
+    <p style="font-size:14px; color:#555;">Convert live rates for 14 currencies</p>
+
+    <label for="amount" style="display:block; text-align:left; margin-top:15px; font-weight:bold;">Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount" value="1" aria-label="Enter amount to convert">
+
     <div class="row" style="margin:15px 0;">
-      <select id="from">
-        <option value="USD">USD - US Dollar</option>
-        <option value="EUR">EUR - Euro</option>
-        <option value="GBP">GBP - British Pound</option>
-        <option value="NGN" selected>NGN - Naira</option>
-        <option value="CAD">CAD - Canadian Dollar</option>
-        <option value="JPY">JPY - Japanese Yen</option>
-        <option value="GHS">GHS - Ghana Cedi</option>
-        <option value="ZAR">ZAR - South African Rand</option>
-        <option value="KES">KES - Kenyan Shilling</option>
-        <option value="CNY">CNY - Chinese Yuan</option>
-        <option value="INR">INR - Indian Rupee</option>
-        <option value="AUD">AUD - Australian Dollar</option>
-        <option value="AED">AED - UAE Dirham</option>
-        <option value="BRL">BRL - Brazilian Real</option>
-      </select>
+      <div style="flex:1; text-align:left;">
+        <label for="from" style="font-weight:bold; font-size:13px;">From:</label>
+        <select id="from" aria-label="Convert from currency">
+          <option value="USD">USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - British Pound</option>
+          <option value="NGN" selected>NGN - Naira</option>
+          <option value="CAD">CAD - Canadian Dollar</option>
+          <option value="JPY">JPY - Japanese Yen</option>
+          <option value="GHS">GHS - Ghana Cedi</option>
+          <option value="ZAR">ZAR - South African Rand</option>
+          <option value="KES">KES - Kenyan Shilling</option>
+          <option value="CNY">CNY - Chinese Yuan</option>
+          <option value="INR">INR - Indian Rupee</option>
+          <option value="AUD">AUD - Australian Dollar</option>
+          <option value="AED">AED - UAE Dirham</option>
+          <option value="BRL">BRL - Brazilian Real</option>
+        </select>
+      </div>
 
-      <button onclick="swapCurrencies()" style="width:50px; background:#28a745;">⇄</button>
+      <div style="display:flex; flex-direction:column; align-items:center; margin:0 5px;">
+        <label style="font-size:11px; color:#666;">Swap</label>
+        <button onclick="swapCurrencies()" aria-label="Swap from and to currencies" title="Swap currencies" style="width:50px; background:#28a745; margin-top:2px;">⇄</button>
+      </div>
 
-      <select id="to">
-        <option value="NGN">NGN - Naira</option>
-        <option value="USD" selected>USD - US Dollar</option>
-        <option value="EUR">EUR - Euro</option>
-        <option value="GBP">GBP - British Pound</option>
-        <option value="CAD">CAD - Canadian Dollar</option>
-        <option value="JPY">JPY - Japanese Yen</option>
-        <option value="GHS">GHS - Ghana Cedi</option>
-        <option value="ZAR">ZAR - South African Rand</option>
-        <option value="KES">KES - Kenyan Shilling</option>
-        <option value="CNY">CNY - Chinese Yuan</option>
-        <option value="INR">INR - Indian Rupee</option>
-        <option value="AUD">AUD - Australian Dollar</option>
-        <option value="AED">AED - UAE Dirham</option>
-        <option value="BRL">BRL - Brazilian Real</option>
-      </select>
+      <div style="flex:1; text-align:left;">
+        <label for="to" style="font-weight:bold; font-size:13px;">To:</label>
+        <select id="to" aria-label="Convert to currency">
+          <option value="NGN">NGN - Naira</option>
+          <option value="USD" selected>USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - British Pound</option>
+          <option value="CAD">CAD - Canadian Dollar</option>
+          <option value="JPY">JPY - Japanese Yen</option>
+          <option value="GHS">GHS - Ghana Cedi</option>
+          <option value="ZAR">ZAR - South African Rand</option>
+          <option value="KES">KES - Kenyan Shilling</option>
+          <option value="CNY">CNY - Chinese Yuan</option>
+          <option value="INR">INR - Indian Rupee</option>
+          <option value="AUD">AUD - Australian Dollar</option>
+          <option value="AED">AED - UAE Dirham</option>
+          <option value="BRL">BRL - Brazilian Real</option>
+        </select>
+      </div>
     </div>
 
-    <button onclick="convert()">Convert</button>
-    <h2 id="result" style="margin-top:20px;">Result will show here</h2>
+    <button onclick="convert()" aria-label="Convert currency">Convert</button>
+    
+    <h2 id="result" role="status" aria-live="polite" style="margin-top:20px;">Result will show here</h2>
     
     <p style="margin-top:20px; font-size:12px; color:#888;">
       © 2026 Goodluck Gilbert. All rights reserved.
